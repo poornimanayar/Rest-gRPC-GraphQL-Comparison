@@ -1,0 +1,53 @@
+[
+
+  {
+    "id": 1,
+    "name": "Harry Potter",
+    "headline": "The boy who lived"
+  },
+  {
+    "id": 2,
+    "name": "Ronald Weasley",
+    "headline": "Super Auror"
+  },
+  {
+    "id": 3,
+    "name": "Hermione Granger",
+    "headline": "Books"
+  },
+  {
+    "id": 4,
+    "name": "Albus Dumbledore",
+    "headline": "Headmaster, Hogwarts"
+  },
+  {
+    "id": 5,
+    "name": "Neville Longbottom",
+    "headline": "The boy who lived"
+  },
+  {
+    "id": 6,
+    "name": "Professor Minerva McGonagall",
+    "headline": "Gryffindor"
+  },
+  {
+    "id": 7,
+    "name": "Firenze",
+    "headline": "Proud Centaur"
+  },
+  {
+    "id": 8,
+    "name": "Hagrid",
+    "headline": "Hogwarts Gamekeeper"
+  },
+  {
+    "id": 9,
+    "name": "Severus Snape",
+    "headline": "The Half-Blood Prince"
+  },
+  {
+    "id": 10,
+    "name": "Lord Voldemort",
+    "headline": "Darkness"
+  }
+]

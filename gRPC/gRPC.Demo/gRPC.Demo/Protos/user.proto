@@ -1,0 +1,75 @@
+syntax = "proto3";
+
+option csharp_namespace = "gRPC.Demo.Protos";
+
+
+service User{
+	rpc GetUsers(UserListRequestModel) returns (UserListReplyModel);
+	rpc GetUser(UserRequestModel) returns (UserReplyModel);
+	rpc CreateUser(CreateUserRequestModel) returns (CreateUserReplyModel);
+	rpc UpdateUser(UpdateUserRequestModel) returns (UpdateUserReplyModel);
+	rpc DeleteUser(DeleteUserRequestModel) returns (DeleteUserReplyModel);
+	rpc GetUserStories(UserRequestModel) returns (UserStoryListReplyModel);
+	rpc GetUserStory(UserStoryRequestModel) returns (UserStoryReplyModel);
+}
+
+message UserListRequestModel{}
+
+message UserListReplyModel{
+	repeated UserReplyModel users = 1;
+}
+
+message UserRequestModel{
+	int32 id=1;
+	
+}
+
+message UserReplyModel{
+	int32 id=1;
+	string name=2;
+	string headline=3;
+}
+
+message CreateUserRequestModel{
+	string name=1;
+	string headline=2;
+}
+
+message CreateUserReplyModel{
+	int32 id=1;
+	string name=2;
+	string headline=3;
+}
+
+message UpdateUserRequestModel{
+	int32 id=1;
+	string name=2;
+	string headline=3;
+}
+
+message UpdateUserReplyModel{
+	bool updated=1;
+}
+
+message DeleteUserRequestModel{
+	int32 id=1;
+}
+
+message DeleteUserReplyModel{
+	bool updated=1;
+}
+
+message UserStoryListReplyModel{
+	repeated UserStoryReplyModel stories =1;
+}
+
+message UserStoryReplyModel{
+	int32 id= 1;
+	string title=2;
+	string description = 3;
+}
+
+message UserStoryRequestModel{
+	int32 user_id=1;
+	int32 story_id =2;
+}

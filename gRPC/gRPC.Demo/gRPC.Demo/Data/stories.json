@@ -1,0 +1,57 @@
+[
+
+  {
+    "id": 1,
+    "storyOwnerId": 1,
+    "title": "Life at Privet Drive",
+    "description": "Life at Privet Drive is not that great!"
+  },
+  {
+    "id": 2,
+    "storyOwnerId": 1,
+    "title": "I get a letter from Hogwarts",
+    "description": "I get a letter from Hogwarts, I am surprised!"
+  },
+  {
+    "id": 3,
+    "storyOwnerId": 1,
+    "title": "Uncle Vernon tore the letter",
+    "description": "Uncle Vernon tore the letter which came from Hogwarts"
+  },
+  {
+    "id": 4,
+    "storyOwnerId": 1,
+    "title": "Many more letters arrive",
+    "description": "The house is flooded with letters from Hogwarts"
+  },
+  {
+    "id": 5,
+    "storyOwnerId": 1,
+    "title": "We go to an island",
+    "description": "We go to an island to escape from the letters"
+  },
+  {
+    "id": 6,
+    "storyOwnerId": 1,
+    "title": "Hagrid turns up",
+    "description": "Hagrid, the gamekeeper of Hogwarts, turns up with my birthday cake and a letter from Hogwarts"
+  },
+  {
+    "id": 7,
+    "storyOwnerId": 1,
+    "title": "I am a WIZARD!",
+    "description": "I just got to know from Hagrid that I am a wizard!"
+  },
+  {
+    "id": 8,
+    "storyOwnerId": 1,
+    "title": "I visit DiagonAlley",
+    "description": "I visit DiagonAlley to purchase essentials for my school"
+  },
+  {
+    "id": 9,
+    "storyOwnerId": 10,
+    "title": "I am back",
+    "description": "Lord Voldemort is back"
+  }
+]
