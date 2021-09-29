@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 
 namespace GraphQL.Demo.GraphQLTypes
 {
-    public class UserType
+    public class MessageType
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-
-        public string Headline { get; set; }
-    }    
+        public string Text { get; set; }
+    }
 }

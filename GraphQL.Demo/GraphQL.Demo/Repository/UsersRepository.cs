@@ -51,8 +51,9 @@ namespace GraphQL.Demo.Repository
             return updated;
         }
 
-        public int DeleteUser(User user)
+        public int DeleteUser(int id)
         {
+            var user = this.GetUserById(id);
             _context.Users.Remove(user);
            var deleted = _context.SaveChanges();
             return deleted;

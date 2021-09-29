@@ -24,6 +24,24 @@ namespace GraphQL.Demo.GraphQLTypes
             return addedUser;
 
         }
+
+        public User UpdateUser(UserUpdateInput userInput, [Service] UsersRepository repository)
+        {
+            var user = new User { Id= userInput.Id, Name = userInput.Name, Headline = userInput.Headline };
+
+            repository.UpdateUser(user);
+
+            return user;
+
+        }
+
+        public MessageType DeleteUser(int id, [Service] UsersRepository repository)
+        {
+            var deleted= repository.DeleteUser(id);
+
+            return new MessageType { Text = $"User with {id} deleted" };
+
+        }
     }
 
 }

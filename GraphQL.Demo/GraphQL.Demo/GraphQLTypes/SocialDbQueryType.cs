@@ -12,6 +12,8 @@ namespace GraphQL.Demo.GraphQLTypes
 {    
     public class SocialDbQueryType
     { 
+
+        //name of the query is the name of the method with the "Get" omitted out
         public List<User> GetUsers( [Service] UsersRepository repository)
         {
             return repository.GetUsers();
@@ -20,11 +22,6 @@ namespace GraphQL.Demo.GraphQLTypes
         public User GetUser(int id, [Service] UsersRepository repository)
         {
             return repository.GetUserById(id);
-        }
-
-        public User CreateUser([Service] UsersRepository repository)
-        {
-            return repository.AddUser(new User { Name = "Peeves", Headline = "Poltergeist" });
         }
     }
 
