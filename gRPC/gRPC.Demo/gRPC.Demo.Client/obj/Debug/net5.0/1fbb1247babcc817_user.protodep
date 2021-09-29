@@ -1,0 +1,2 @@
+obj\Debug\net5.0/User.cs \
+obj\Debug\net5.0/UserGrpc.cs: ../gRPC.Demo/Protos/user.proto
