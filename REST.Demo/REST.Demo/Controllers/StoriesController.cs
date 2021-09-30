@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+using REST.Demo.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -12,36 +15,39 @@ namespace REST.Demo.Controllers
     [ApiController]
     public class StoriesController : ControllerBase
     {
-        // GET: api/<StoriesController>
-        [HttpGet]
-        public IEnumerable<string> Get()
+        private readonly IMapper _mapper;
+
+        public StoriesController(IMapper mapper)
         {
-            return new string[] { "value1", "value2" };
+            _mapper = mapper;
         }
 
-        // GET api/<StoriesController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("{id}", Name = nameof(GetStory))]
+        [HttpHead]
+        public ActionResult<StoryDto> GetStory(int id)
         {
-            return "value";
+            var jsonString = System.IO.File.ReadAllText(@"C:\WORK\SPEAKERDEMOS\REST-gRPC-GRAPHQL-COMPARISON\REST.Demo\REST.Demo\Data\stories.json");
+
+            var stories = JsonSerializer.Deserialize<List<StoryDto>>(jsonString, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
+
+            var mappedStory = _mapper.Map<StoryDto>(stories.FirstOrDefault(s => s.Id== id));
+
+            //return 200 status code with a response body
+            return this.Ok(mappedStory);
         }
 
-        // POST api/<StoriesController>
-        [HttpPost]
-        public void Post([FromBody] string value)
+        [HttpGet("{id}/comments", Name = nameof(GetCommentsByStory))]
+        [HttpHead]
+        public ActionResult<CommentDto> GetCommentsByStory(int id)
         {
-        }
+            var jsonString = System.IO.File.ReadAllText(@"C:\WORK\SPEAKERDEMOS\REST-gRPC-GRAPHQL-COMPARISON\REST.Demo\REST.Demo\Data\comments.json");
 
-        // PUT api/<StoriesController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
+            var comments = JsonSerializer.Deserialize<List<Comment>>(jsonString, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
 
-        // DELETE api/<StoriesController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            var mappedComments = _mapper.Map<IEnumerable<CommentDto>>(comments.Where(c => c.StoryId == id));
+
+            //return 200 status code with a response body
+            return this.Ok(mappedComments);
         }
     }
 }

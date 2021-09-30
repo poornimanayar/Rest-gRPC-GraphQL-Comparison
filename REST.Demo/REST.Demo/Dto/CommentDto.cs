@@ -6,14 +6,10 @@ using System.Threading.Tasks;
 
 namespace REST.Demo.Models
 {
-    public class CommentDto
+    public class CommentDto 
     {
         public int Id { get; set; }
 
         public string Description { get; set; }
-
-        public int StoryId { get; set; }
-
-        public int CommenterId { get; set; }
     }
 }

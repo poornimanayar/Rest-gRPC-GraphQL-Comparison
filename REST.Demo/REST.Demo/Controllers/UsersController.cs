@@ -148,6 +148,8 @@ namespace REST.Demo.Controllers
             return NoContent();
         }
 
+        
+
         private UserDto CreateLinksForUser(UserDto user)
         {
             var idObj = new { id = user.Id };
@@ -165,6 +167,11 @@ namespace REST.Demo.Controllers
                 new LinkDto(Url.Link(nameof(this.DeleteUser), idObj),
                 "delete-user",
                 "DELETE"));
+
+            user.Links.Add(
+               new LinkDto(Url.Link(nameof(UsersStoriesController.GetStoriesForUser), idObj),
+               "user-stories",
+               "GET"));
 
             return user;
         }
