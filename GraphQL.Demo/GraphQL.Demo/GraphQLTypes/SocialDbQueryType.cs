@@ -5,8 +5,6 @@ using HotChocolate;
 using HotChocolate.Data;
 using HotChocolate.Types;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace GraphQL.Demo.GraphQLTypes
 {    

@@ -1,4 +1,5 @@
-﻿using gRPC.Demo.Protos;
+﻿using Google.Protobuf.WellKnownTypes;
+using gRPC.Demo.Protos;
 using gRPC.Demo.Repository;
 using Grpc.Core;
 using System;
@@ -68,6 +69,14 @@ namespace gRPC.Demo.Services
         public override Task<DeleteUserReplyModel> DeleteUser(DeleteUserRequestModel request, ServerCallContext context)
         {
             return base.DeleteUser(request, context);
+        }
+
+        public override Task<Empty> TestError(Empty request, ServerCallContext context)
+        {
+            var entry = new Metadata.Entry("Name", "the value was empty");
+            var metadata = new Metadata();
+            metadata.Add(entry);
+            throw new RpcException(new Status(StatusCode.Internal, $"Missing argument"), metadata);
         }
     }
 }

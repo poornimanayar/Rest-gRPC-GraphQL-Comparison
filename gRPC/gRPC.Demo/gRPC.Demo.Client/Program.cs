@@ -15,19 +15,21 @@ namespace gRPC.Demo.Client
             //instantiate the client
             var client = new User.UserClient(channel);
 
-            //call the get users stub method
-            var reply = await client.GetUsersAsync(new UserListRequestModel());
+             client.TestError(new Google.Protobuf.WellKnownTypes.Empty());
 
-            Console.WriteLine("========================================================");
-            Console.WriteLine("Users");
-            Console.WriteLine("========================================================");
+            ////call the get users stub method
+            //var reply = await client.GetUsersAsync(new UserListRequestModel());
 
-            foreach(var user in reply.Users)
-            {
-                Console.WriteLine($"{user.Id} . {user.Name} - {user.Headline}");
-            }
+            //Console.WriteLine("========================================================");
+            //Console.WriteLine("Users");
+            //Console.WriteLine("========================================================");
 
-            Console.WriteLine("Press any key to exit...");
+            //foreach(var user in reply.Users)
+            //{
+            //    Console.WriteLine($"{user.Id} . {user.Name} - {user.Headline}");
+            //}
+
+            //Console.WriteLine("Press any key to exit...");
 
             Console.ReadKey();
         }

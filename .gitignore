@@ -16,3 +16,7 @@ REST.Demo/.vs/
 REST.Demo/REST.Demo/bin/
 
 REST.Demo/REST.Demo/obj/
+
+gRPC/gRPC.Demo/gRPC.Demo.Client/bin/
+
+gRPC/gRPC.Demo/gRPC.Demo.Client/obj/
